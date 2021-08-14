@@ -152,6 +152,10 @@ vector<int> longestObstacleCourseAtEachPosition(vector<int> & o){
 // Driver Code
 int main()
 {
+
+    #ifndef
+
+    #
     int n = int(pow(10, 5));
     // cin>>n;
     vector<int> o(n);
