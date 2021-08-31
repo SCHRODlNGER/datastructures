@@ -19,57 +19,29 @@ template<typename T> void prllList(std::initializer_list<T> li) {
 const double pi = 2 * acos(0.0);
 const int INF = int(1e9);
 
-    int minDifficulty(vector<int>& jj, int d) {
-        
-        int ans = 0;
-        int n =jj.size();
-        
-        vector<vector<int> > dp(n, vector<int>(d+1));
-        
+double func(vector<int> &n, vector<int> &m){
 
-        for(int i=0;i<n;i++){
-            if(i==0) dp[i][0] = jj[i];
-            else    dp[i][0] = max(dp[i-1][0], jj[i]);
-        }
-        for(int i=0;i<n;i++){
-            
-            for(int j = 1;j<d;j++){
-                if(i<j){
-                    dp[i][j] = -1;
-                    continue;
-                }
-                dp[i][j] = INT_MAX;
-                int maxi = jj[i];
-                for(int k = i-1;k>=0;k--){
-                    if(k<(j-1))
-                        break;
-                    maxi = max(maxi, jj[k+1]);
-                    dp[i][j] = min(dp[i][j], dp[k][j-1] + maxi);
-                }
-                
-            }
-        }
+ 
 
-        
-        return dp[n-1][d-1];
-        
-    }
 
-// Driver Code
+}
+
 int main()
 {
 
-    ios::sync_with_stdio(false);
+    // ios::sync_with_stdio(false);
     #ifndef ONLINE_JUDGE
         freopen("input.txt","r",stdin);
-        // freopen("output.txt","w",stdout);
+        freopen("output.txt","w",stdout);
     #endif
-    int n,i,d;
-    cin>>n;
-    vector<int> a(n);
-    ifr(i,0,n)   cin>>a[i];
+    int m,n,t;
+    cin>>n>>m;
+    vector<int> v(n);
+    vector<int> v2(m);
+    ifr(i,0,n)
+        cin>>v[i];
+    ifr(i,0,m)
+        cin>>v2[i];
+    cout<<func(v, v2);
 
-    cin>>d;
-
-    cout<<minDifficulty(a, d);
 }

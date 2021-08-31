@@ -13,7 +13,7 @@ class Trie{
 
 
     Trie(){
-        this.isLeaf = false;
+        this->isLeaf = false;
         for(int i = 0;i<CHAR_SIZE;i++)
             characters[i] = nullptr;
     }
@@ -42,4 +42,4 @@ class Trie{
 
     
 
-}
+};

@@ -19,19 +19,38 @@ template<typename T> void prllList(std::initializer_list<T> li) {
 const double pi = 2 * acos(0.0);
 const int INF = int(1e9);
 
+int func(int n, vector<int> h, int s){
+    multiset<int> ss;
+    for(int i=0;i<s;i++)
+        ss.insert(h[i]);
+    
+    int ans = *ss.begin();
+    int c = 0;
+    for(int i = s;i<n;i++){
+        ss.erase(ss.find(h[c++]));
+        ss.insert(h[i]);
 
 
+        ans = max(ans, *ss.begin());
+    }
+    return ans;
+}
 
 signed main(){
     ios::sync_with_stdio(false);
     #ifndef ONLINE_JUDGE
-        // freopen("input.txt","r",stdin);
-        // freopen("output.txt","w",stdout);
+        freopen("input.txt","r",stdin);
+        freopen("output.txt","w",stdout);
     #endif
 
 
-    int n;
-    cin>>n;
-    cout<<(n * (n+1)* (n+2))/6<<endl;
+    int n,s, i,j;
+    cin>>n>>s;
+    vector<int> v(n);
+    ifr(i,0,n)
+        cin>>v[i];
+    cout<<func(n,v,s)<<endl;
+
+    
 
 }
