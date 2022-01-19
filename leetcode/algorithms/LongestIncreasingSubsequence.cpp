@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
 typedef vector<ll> vll;
@@ -16,41 +16,46 @@ template<typename T> void prllList(std::initializer_list<T> li) {
 #define eb emplace_back
 #define swap(a,b) tie(a,b)=mt(b,a)
 #define watch(x) cout<<#x<<" " << (x)<<endl;
-const double pi = 2 * acos(0.0);
+const double pi = 2 * acos(0.0);    
 const int INF = int(1e9);
 
-int func(int n, vector<int> h, int s){
-    multiset<int> ss;
-    for(int i=0;i<s;i++)
-        ss.insert(h[i]);
-    
-    int ans = *ss.begin();
-    int c = 0;
-    for(int i = s;i<n;i++){
-        ss.erase(ss.find(h[c++]));
-        ss.insert(h[i]);
 
+int bin_search(vector<int> &t, vector<int> &v, int l, int r, int k){
 
-        ans = max(ans, *ss.begin());
+    while(r - l > 1)
+    {
+        int m = l + (r - l)/2;
+        if(v[t[m]] >= k)
+            r = m;
+        else
+            l = m;
     }
-    return ans;
+
+    return r;
+
 }
 
-signed main(){
-    ios::sync_with_stdio(false);
-    #ifndef ONLINE_JUDGE
-        freopen("input.txt","r",stdin);
-        freopen("output.txt","w",stdout);
-    #endif
+int lis(vector<int> v){
+    int n = v.size();
 
+    vector<int> t(n , 0);
 
-    int n,s, i,j;
-    cin>>n>>s;
-    vector<int> v(n);
-    ifr(i,0,n)
-        cin>>v[i];
-    cout<<func(n,v,s)<<endl;
+    int l = 1;
+    t[0] = 0;
+    for(int i=1;i<n;i++){
+        if(v[i] < v[t[0]]){
+            t[0] = i;
 
-    
+            }
+        else if(v[i] > v[t[l-1]]){
+            t[l++] = i;
+}
+        else{
+
+            int x = bin_search(t, v, -1, l-1, v[i]);
+            t[x] = i;
+        }
+    }
+    return l;
 
 }

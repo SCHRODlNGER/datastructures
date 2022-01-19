@@ -19,50 +19,41 @@ template<typename T> void prllList(std::initializer_list<T> li) {
 const double pi = 2 * acos(0.0);
 const int INF = int(1e9);
 
-bool f = false;
 
-    set<string> s;
-    int i2 = 0;
-    void get_all(string cur, int i, int n, vector<string> &b){
+int lengthOfLongestSubstring(string s) {
+    int hash[256] = {-1};
+    int n = s.length();
+    int ans = 1;
+    if(n == 0)
+        return 0;
 
-        if(i == n && b[i2++] != cur){
-            s.insert(cur);
-            f = true;
-            return;
-        }
-        if(i == n)
-            return ;
-        if(!f)
-        {cur[i] = '0';
-        get_all(cur, i+1, n ,b);}
-        if(!f){
-        cur[i] = '1';
-        get_all(cur, i+1, n, b);
-        }
-    }
-    
-    string findDifferentBinaryString(vector<string> &b) {
-        int n = b.size();
-        string ss(n, '0');
-        sort(b.begin(), b.end());
-        get_all(ss, 0, n, b);
-        for(auto i:s){
-            cout<<i<<" ";
+    for(int i =0;i<n;i++){
+        memset(hash, -1, sizeof(hash));
+        hash[int(s[i])] = 1;
+        for(int j= i+1; j<n;j++){
+            if(hash[int(s[j])] == 1){
+                ans = ans>j-i?ans:j-i;
+                break;
+            }
+            else{
+                hash[int(s[j])] = 1;
+                ans = ans>j-i+1?ans:j-i+1;
+            }
         }
         
-        return *s.begin();
     }
+    return ans;
+        
+}
 
 int main()
 {
     ios::sync_with_stdio(false);
-    // #ifndef ONLINE_JUDGE
+    #ifndef ONLINE_JUDGE
         freopen("input.txt","r",stdin);
     //     freopen("output.txt","w",stdout);
-    // #endif
-    int i,j,n = 2;
-    vector<string> v(n);
-    ifr(i,0,n)
-        cin>>v[i];
-    cout<<findDifferentBinaryString(v);
+    #endif
+    
+
+
 }

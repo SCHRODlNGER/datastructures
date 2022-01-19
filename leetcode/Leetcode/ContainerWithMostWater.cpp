@@ -19,29 +19,31 @@ template<typename T> void prllList(std::initializer_list<T> li) {
 const double pi = 2 * acos(0.0);
 const int INF = int(1e9);
 
-double func(vector<int> &n, vector<int> &m){
-
- 
-
-
-}
+ int maxArea(vector<int>& a) {
+        int l = 0;
+        int r = a.size()-1;
+        int ans = 0;
+        
+        while(l<r){
+            ans  = max(ans, min(a[l], a[r]) *(r-l));
+            if(a[l]>a[r])
+                r--;
+            else
+                l++;
+        }
+        
+        
+        return ans;
+    }
 
 int main()
 {
-
-    // ios::sync_with_stdio(false);
+    ios::sync_with_stdio(false);
     #ifndef ONLINE_JUDGE
         freopen("input.txt","r",stdin);
-        freopen("output.txt","w",stdout);
+    //     freopen("output.txt","w",stdout);
     #endif
-    int m,n,t;
-    cin>>n>>m;
-    vector<int> v(n);
-    vector<int> v2(m);
-    ifr(i,0,n)
-        cin>>v[i];
-    ifr(i,0,m)
-        cin>>v2[i];
-    cout<<func(v, v2);
+    
+
 
 }
