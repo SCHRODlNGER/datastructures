@@ -2,7 +2,7 @@
 #define MAX 100001
 #define NIL 0
 #define INF (1<<28)
-//unweighted bipartitie graph maximum matchingi
+//unweighted bipartitie graph maximum matching
 vector< int > G[MAX];
 int n, m, match[MAX], dist[MAX];
 // n: number of nodes on left side, nodes are numbered 1 to n

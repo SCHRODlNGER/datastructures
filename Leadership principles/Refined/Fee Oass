@@ -1,0 +1,16 @@
+Product Ownership: Fee Pass System (Urban Company)
+Focus: Full-stack Development, Product Ownership, Business Impact
+
+Situation: As the sole owner of the policy systems (Sept 2023 – Jan 2024), you needed to implement a "fee pass" system to give customers the flexibility to cancel service requests without incurring fees under specific conditions.
+
+Task: Build a comprehensive fee structure system that could handle multiple request types (regular, routine, and bundles) and various cancellation scenarios (partner-led vs. customer-initiated).
+
+Action:
+
+Backend Design: Designed a flexible fee structure that supported diverse service types.
+
+Ops Dashboard: Built a customizable internal dashboard for the operations team to manage and update fee policies in real-time.
+
+Full-Stack Implementation: Developed both the logic for handling various cancellation triggers and the customer-facing UI.
+
+Result: Delivered the full system within a tight 4-month timeline, providing the business with a scalable way to manage customer satisfaction and cancellation policies.

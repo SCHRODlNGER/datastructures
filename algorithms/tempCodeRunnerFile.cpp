@@ -1,0 +1,1 @@
+b.getValue( righty + 1 ) - b.getValue(bulbs[i] + 1)

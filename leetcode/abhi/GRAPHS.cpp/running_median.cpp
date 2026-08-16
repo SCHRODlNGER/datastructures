@@ -16,8 +16,8 @@ vector<double> fun(vector<int> a) {
     auto balance_out = [&](){
         if(min_heap.empty() || max_heap.empty())
             return;
-            int r = *min_heap.begin();
-            int l = *max_heap.begin();
+        int r = *min_heap.begin();
+        int l = *max_heap.begin();
         if(l > r){
             min_heap.erase(min_heap.find(r));
             max_heap.erase(max_heap.find(l));

@@ -1,0 +1,1 @@
+n / (k - 1) + getMinOp(n % (k - 1), k)
